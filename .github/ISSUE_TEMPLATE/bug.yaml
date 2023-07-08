@@ -29,7 +29,7 @@ body:
       required: true
 
   - type: dropdown
-    id: WebUI
+    id: webui
     attributes:
       label: Which WebUI
       description: What WebUI do you use?
@@ -40,7 +40,7 @@ body:
       required: true
 
     - type: dropdown
-      id: webui_version
+      id: webui-version
       attributes:
         label: WebUI version
         description: Which WebUI version do you use?
