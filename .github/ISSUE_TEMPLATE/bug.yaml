@@ -11,10 +11,11 @@ body:
 
   - type: checkboxes
     id: otherIssues
+    label: Please search to see if an issue already exists for the bug you encountered, and that it hasn't been fixed in a recent build/commit.
     attributes:
-      label: Have you checked for other issues?
+      label: Is there an existing issue for this?
       options:
-        - label: I have searched the [issues]
+        - label: I have searched the existing issues
           required: true
 
   - type: textarea
@@ -28,15 +29,28 @@ body:
       required: true
 
   - type: dropdown
-    id: version
+    id: WebUI
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Which WebUI
+      description: What WebUI do you use?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - AUTOMATIC1111 (Default)
+        - Vladmandic (not tested)
     validations:
       required: true
+
+    - type: dropdown
+      id: webui_version
+      attributes:
+        label: WebUI version
+        description: Which WebUI version do you use?
+        options:
+          - 1.4.*
+          - 1.3.*
+          - 1.2.*
+          - 1.1.*
+      validations:
+        required: true
 
   - type: dropdown
     id: browsers
@@ -49,18 +63,39 @@ body:
         - Safari
         - Microsoft Edge
 
+  - type: dropdown
+    id: py-version
+    attributes:
+      label: What Python version are you running on ?
+      multiple: false
+      options:
+        - Python 3.10.x
+        - Python 3.11.x (above, no supported yet)
+        - Python 3.9.x (below, no recommended)
+
+    - type: textarea
+      id: steps
+      attributes:
+        label: Steps to reproduce the problem
+        description: Please provide us with precise step by step information on how to reproduce the bug
+        value: |
+          1. Go to .... 
+          2. Press ....
+          3. ...
+      validations:
+        required: true
+
+  - type: textarea
+    id: extensions
+    attributes:
+      label: List of extensions
+      description: Are you using any extensions other than built-ins? If yes, provide a list, you can copy it at "Extensions" tab. Write "No" otherwise.
+    validations:
+      required: true
+
   - type: textarea
     id: logs
     attributes:
       label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      description: Please provide **full** cmd/terminal logs from the moment you started UI to the end of it, after your bug happened. If it's very long, provide a link to pastebin or similar service. This will be automatically formatted into code, so no need for backticks.
       render: shell
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
