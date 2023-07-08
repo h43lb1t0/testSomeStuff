@@ -11,12 +11,12 @@ body:
 
   - type: checkboxes
     id: otherIssues
-    label: Please search to see if an issue already exists for the bug you encountered, and that it hasn't been fixed in a recent build/commit.
     attributes:
-      label: Is there an existing issue for this?
+      label: Please search to see if an issue already exists for the bug you encountered, and that it hasn't been fixed in a recent build/commit.
       options:
         - label: I have searched the existing issues
           required: true
+
 
   - type: textarea
     id: what-happened
